@@ -113,10 +113,6 @@ hotel-booking-system/
 
 Contributions are welcome! Feel free to open issues or submit pull requests for new features, bug fixes, or improvements.
 
-## License
 
-This project is licensed under the MIT License.
-
----
 
 Feel free to customize further according to your project specifics!
