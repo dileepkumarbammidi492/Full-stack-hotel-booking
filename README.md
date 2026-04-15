@@ -70,8 +70,8 @@ Follow these steps to set up the project locally:
    ```
 
 3. **Access the application**:
-   - Frontend: `http://localhost:3000`
-   - Backend (API): `http://localhost:5000`
+   - client Frontend: `http://localhost:5175`
+   - Backend (API): `http://localhost:5176`
 
 ## Project Structure
 
@@ -98,10 +98,10 @@ hotel-booking-system/
 
 ## API Endpoints
 
-- **User Authentication**: `/api/auth/`
-- **Hotel Management**: `/api/hotels/`
-- **Room Management**: `/api/rooms/`
-- **Booking**: `/api/bookings/`
+- **User Authentication**: `http://localhost:8001/api/auth/login`
+- **Hotel Management**: `http://localhost:8001/api/hotels`
+- **Room Management**: `http://localhost:8001/api/bookings`
+- **Booking**: `http://localhost:8001/api/seed`
 
 ## Future Enhancements
 
