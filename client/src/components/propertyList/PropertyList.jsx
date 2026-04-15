@@ -12,19 +12,23 @@ const PropertyList = () => {
   console.log(data);
   return (
     <div className="pList">
-      {data && data.map((item, i) => (
-        <div className="pListItem" key={i}>
-          <img
-            src={images[i]}
-            alt={item.type}
-            className="pListImg"
-          />
-          <div className="pListTitles">
-            <h1>{item.type}</h1>
-            <h2>{`${item.count} ${item.type}`}</h2>
+      {loading ? (
+        <div className="loading">Loading property types...</div>
+      ) : (
+        data && data.map((item, i) => (
+          <div className="pListItem" key={i}>
+            <img
+              src={images[i]}
+              alt={item.type}
+              className="pListImg"
+            />
+            <div className="pListTitles">
+              <h1>{item.type}</h1>
+              <h2>{`${item.count} ${item.type}`}</h2>
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      )}
     </div>
   );
 };

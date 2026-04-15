@@ -1,0 +1,49 @@
+.bookingsContainer {
+  max-width: 1080px;
+  margin: 32px auto;
+  padding: 0 20px;
+}
+
+.bookingsContainer h1 {
+  margin-bottom: 24px;
+  color: var(--primary);
+}
+
+.bookingsList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bookingCard {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 76, 129, 0.12);
+}
+
+.bookingCard h2 {
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.bookingCard p {
+  margin: 4px 0;
+  color: var(--text);
+}
+
+.rooms {
+  margin-top: 16px;
+}
+
+.room {
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.room p {
+  margin: 2px 0;
+}

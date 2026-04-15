@@ -1,85 +1,111 @@
+.list {
+  display: flex;
+  justify-content: center;
+  padding: 32px 0 48px;
+}
+
 .listContainer {
-  color: rgb(122, 120, 120);
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .listWrapper {
-    width: 100%;
-    max-width: 1024px;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .listSearch {
-    flex: 1;
-    background-color: #3f267e;
-    padding: 10px;
-    border-radius: 4px;
-    position: sticky;
-    top: 10px;
-    height: max-content;
-  }
-  
-  .lsTitle{
-    font-size: 20px;
-    color: #bbb4b4;
-    margin-bottom: 10px;
-  }
-  
-  .lsItem{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .lsItem>label{
-    font-size: 12px;
-  }
-  
-  .lsItem>input{
-    height: 30px;
-    border: none;
-    padding: 5px;
-  }
-  .lsItem>span{
-    height: 30px;
-    padding: 5px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  .lsOptions{
-    padding: 10px;
-  }
-  
-  .lsOptionItem{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    color: #f4f0f0;
-    font-size: 12px;
-  }
-  
-  .lsOptionInput{
-    width: 50px;
-  }
-  
-  .listSearch>button{
-    padding: 10px;
-    background-color: #0071c2;
-    color: white;
-    border: none;
-    width: 100%;
-    font-weight: 500;
-    cursor: pointer;
-  }
-  
-  .listResult {
-    flex: 3;
-  }
+  width: min(1080px, 96%);
+  margin: 0 auto;
+}
+
+.listWrapper {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 28px;
+}
+
+.listSearch {
+  flex: 1;
+  background: var(--surface);
+  padding: 28px;
+  border-radius: 28px;
+  border: 1px solid rgba(15,76,129,0.12);
+  box-shadow: 0 22px 50px rgba(15,23,42,0.06);
+  position: sticky;
+  top: 20px;
+}
+
+.lsTitle {
+  font-size: 1.4rem;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+
+.lsItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.lsItem > label {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.lsItem > input {
+  height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 0 14px;
+  background: #f8fafc;
+  color: var(--text);
+}
+
+.lsItem > span {
+  height: 46px;
+  padding: 0 14px;
+  background-color: #f8fafc;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.lsOptions {
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.lsOptionItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.lsOptionInput {
+  width: 100%;
+  height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 0 12px;
+  background: #f8fafc;
+  color: var(--text);
+}
+
+.listSearch > button {
+  padding: 14px 18px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  width: 100%;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.listSearch > button:hover {
+  background-color: #0b3d75;
+}
+
+.listResult {
+  flex: 3;
+}
+
   

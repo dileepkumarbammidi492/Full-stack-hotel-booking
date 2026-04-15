@@ -1,7 +1,178 @@
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --surface-strong: #f1f5f9;
+  --text: #0f172a;
+  --muted: #64748b;
+  --primary: #0f4c81;
+  --primary-soft: #dce7f5;
+  --accent: #f59e0b;
+  --border: #e2e8f0;
+}
+
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'poppins', monospace;
-    text-decoration: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  color: var(--text);
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 0.5em 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0 0 1em 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  transition: background-color 0.25s ease, transform 0.25s ease;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+input, textarea, select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Loading states */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  color: var(--muted);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .homeTitle {
+    font-size: 1.5rem !important;
+  }
+
+  .featured {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .pList {
+    grid-template-columns: 1fr;
+  }
+
+  .fp {
+    grid-template-columns: 1fr;
+  }
+
+  .fLists {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .mail {
+    padding: 40px 20px;
+  }
+
+  .mailTitle {
+    font-size: 2rem;
+  }
+
+  .mailInputContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .mailInputContainer > input {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .hotelDetails {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hotelImgWrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .hotelImgWrapper img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fLists {
+    grid-template-columns: 1fr;
+  }
+
+  .mailTitle {
+    font-size: 1.5rem;
+  }
+
+  .homeTitle {
+    font-size: 1.2rem !important;
+  }
 }

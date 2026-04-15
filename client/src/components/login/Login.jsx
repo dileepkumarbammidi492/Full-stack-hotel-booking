@@ -26,35 +26,39 @@ const Login = () => {
         try {
             const response = await axios.post('/api/auth/login', credentials);
             // console.log("Response data:", response.data); // Log the response from the server
-            dispatch({type: "LOGIN_SUCCESS", payload: response.data.details});
+            const userData = { ...response.data.details, token: response.data.token };
+            dispatch({type: "LOGIN_SUCCESS", payload: userData});
             navigate('/')
         } catch (error) {
             console.error("Login error:", error); // Log the error
-            dispatch({type: "LOGIN_FAILURE", payload: error.response?.data || "Something went wrong"});
+            const message = error.response?.data?.message || error.response?.data || error.message || "Something went wrong";
+            dispatch({type: "LOGIN_FAILURE", payload: message});
         }
     }
     
   return (
     <div className='login-page'>
         <div className='container'>
-            <form className='form'>
+            <form className='form' onSubmit={handleSubmit}>
             <h2 className='head'>LOG IN</h2>
             <input type="text"
                 placeholder='username'
                 id='username'
                 className='lInput'
+                value={credentials.username || ''}
                 onChange={handleChange}
             />
             <input type="password"
                 placeholder='password'
                 id='password'
                 className='lInput'
+                value={credentials.password || ''}
                 onChange={handleChange}
             />
-            <button disabled={loading} onClick={handleSubmit} className='lButton'>Log in</button>
+            <button disabled={loading} type="submit" className='lButton'>Log in</button>
             {
-    error && <span className='error'>{error.message || "An error occurred during login"}</span>
-}
+              error && <span className='error'>{typeof error === 'string' ? error : error?.message || JSON.stringify(error)}</span>
+            }
             </form>
 
         </div>

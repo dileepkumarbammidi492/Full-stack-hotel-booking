@@ -1,31 +1,50 @@
-.pList{
-    width: 100%;
-    max-width: 1024px;
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  
-  .pListItem{
-    flex:1;
-    border-radius: 7px;
-    overflow: hidden;
-    cursor: pointer;
-  }
-  
-  .pListImg{
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-  }
-  
-  .pListTitles>h1{
-    text-transform: capitalize;
-    font-size: 18px;
-    color: #444;
-  }
-  
-  .pListTitles>h2{
-    font-size: 14px;
-    font-weight: 300;
-  }
+.pList {
+  width: 100%;
+  max-width: 1080px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.pListItem {
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: var(--surface);
+}
+
+.pListItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.pListImg {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.pListItem:hover .pListImg {
+  transform: scale(1.05);
+}
+
+.pListTitles {
+  padding: 16px;
+}
+
+.pListTitles > h1 {
+  text-transform: capitalize;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.pListTitles > h2 {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--muted);
+}

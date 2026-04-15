@@ -53,20 +53,18 @@ export const getHotel = async (req, res, next) =>{
 // get all
 export const getAllHotel = async (req, res, next) => {
     try {
-        // const { limit, min = 1, max = 999, ...query } = req.query;
-        // const lim = parseInt(limit) || 50; // Default limit to 10 if not provided
-        // const hotels = await Hotel.find({ 
-        //     ...query, 
-        //     cheapestPrice: { $gt: min, $lt: max } 
-        // }).limit(lim);
+        const { limit, min = 0, max = 999, city, ...query } = req.query;
+        const lim = Number.parseInt(limit) || 40;
+        const filter = {
+            ...query,
+            cheapestPrice: { $gte: Number.parseInt(min), $lte: Number.parseInt(max) },
+        };
 
-        // console.log(`Limit: ${lim}`);
-        // console.log('Hotels:', hotels.length);
-        const {limit, min, max, ...query} = req.query;
-        const lim = parseInt(limit) || 40;
-        const hotels = await Hotel.find({
-            ...query
-        }).limit(lim)
+        if (city) {
+            filter.city = { $regex: new RegExp(city, 'i') };
+        }
+
+        const hotels = await Hotel.find(filter).limit(lim);
         res.status(200).json(hotels);
     } catch (err) {
         console.error('Error fetching hotels:', err);

@@ -60,6 +60,11 @@ select {
     gap: 9px;
 }
 
+.availableCount {
+    font-weight: bold;
+    color: #ffeb3b;
+}
+
 .btnDiv{
     width: 100%;
     display: flex;

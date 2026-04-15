@@ -14,10 +14,11 @@ const List = () => {
 const [destination, setDestination] = useState(location.state?.destination || "");
 const [date, setDate] = useState(location.state?.date || [{ startDate: new Date(), endDate: new Date() }]);
 const [openDate, setOpenDate] = useState(false);
-const [options, setOptions] = useState(location.state?.options || { adult: 1, children: 0, room: 1 });
+const [options] = useState(location.state?.options || { adult: 1, children: 0, room: 1 });
 const [min, setMin] = useState(undefined)
 const [max, setMax] = useState(undefined)
-const {data, loading, error, reFetch} = useFetch(`/api/hotels?city=${destination}&min=${min || 0}&max=${max || 999}`)
+const searchUrl = "/api/hotels?min=" + (min || 0) + "&max=" + (max || 999) + (destination ? "&city=" + destination : "")
+const {data, loading, error, reFetch} = useFetch(searchUrl)
 
 const handleSearch = () =>{
   reFetch()

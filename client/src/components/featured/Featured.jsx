@@ -8,7 +8,7 @@ const Featured = () => {
     <div className="featured">
       {
         loading ? (
-         <p>loading ..</p>
+         <div className="loading">Loading featured destinations...</div>
         ): (
           <>
             <div className="featuredItem">

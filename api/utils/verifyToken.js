@@ -3,7 +3,7 @@ import { createError } from './error.js';
 import User from '../models/User.js';
 
 export const verifyToken = (req, res, next) =>{
-    const token = req.cookies.access_token;
+    const token = req.cookies.access_token || req.headers.authorization?.split(' ')[1];
 
     if(!token){
         next(createError(401, 'unauthorized'))

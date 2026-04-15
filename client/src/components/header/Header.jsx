@@ -6,7 +6,7 @@
   import "react-date-range/dist/styles.css"; // main css file
   import "react-date-range/dist/theme/default.css"; // theme css file
   import { format } from "date-fns";
-  import { useNavigate } from "react-router-dom";
+  import { useNavigate, Link } from "react-router-dom";
   import { FaLongArrowAltRight } from "react-icons/fa";
 import { SearchContext } from "../../context/searchContext";
 import { AuthContext } from "../../context/AuthContext";
@@ -85,10 +85,10 @@ import { AuthContext } from "../../context/AuthContext";
               </h1>
               <p className="headerDesc">
                 Get rewarded for your travels – unlock instant savings of 10% or
-                more with a free BookNrest account
+                more with a free StayNest account
               </p>
               {
-                !user && <button className="headerBtn">Sign in / Register</button>
+                !user && <Link to="/register"><button className="headerBtn">Sign in / Register</button></Link>
               }
               <div className="headerSearch">
                 <div className="headerSearchItem">

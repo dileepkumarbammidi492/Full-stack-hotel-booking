@@ -4,20 +4,25 @@ import { createError } from "../utils/error.js";
 import jwt from 'jsonwebtoken'
 
 export const register = async(req, res, next)=>{
-   var salt = bcrypt.genSaltSync(10)
-   var hash = bcrypt.hashSync(req.body.password , salt);
-    try {
-         const newUser = new User({
-            ...req.body,
-            password: hash,
-         })
-         await newUser.save()
-         res.status(201).json({
-            msg: 'user saved'
-         })
-    } catch (error) {
-       next(error) 
-    }
+   try {
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(req.body.password, salt);
+        const newUser = new User({
+           ...req.body,
+           password: hash,
+        });
+        const savedUser = await newUser.save();
+        const { password, ...otherDetails } = savedUser._doc;
+        const token = jwt.sign({
+           id: savedUser._id,
+           isAdmin: savedUser.isAdmin
+        }, process.env.JWT_SECRET);
+        res.cookie("access_token", token, {
+           httpOnly: true
+        }).status(201).json({ details: { ...otherDetails, isAdmin: savedUser.isAdmin }, token });
+   } catch (error) {
+      next(error);
+   }
 }
 // Login
 export const login = async(req, res, next)=>{
@@ -39,7 +44,7 @@ export const login = async(req, res, next)=>{
 
          res.cookie("access_token", token, {
             httpOnly: true
-         }).status(200).json({details:{...otherDetails, isAdmin}})
+         }).status(200).json({details:{...otherDetails, isAdmin}, token})
        
     } catch (error) {
        next(error) 
